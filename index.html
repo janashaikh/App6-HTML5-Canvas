@@ -60,6 +60,12 @@ console.log("This file last modified " + docMod); // generates message in javaSc
     left: 0vw;
     z-index: 1;
 }
+/* adding in the canvas with a border */
+    canvas {
+        border: 1px solid black;
+        display: block;
+        margin: 10px auto;
+	
 </style>
 
 <body>
@@ -69,14 +75,65 @@ console.log("This file last modified " + docMod); // generates message in javaSc
 	
 <div id="content" class="w3-container">
 	<p>Content goes here.</p>
+	    <!-- canvas for the drawing -->
+        <canvas id="myCanvas" width="300" height="400"></canvas>
+	   <!-- button for pressing on the canvas for the rectangle -->
+        <div class="btn-container">
+            <!-- actual button to draw the rectangle -->
+            <button onclick="drawRectangle()">Draw Rectangle</button>
+
+            <!-- button for writing my name -->
+            <button onclick="writeName()">Write Name</button>
+
+            <!-- button for a picture/image -->
+            <button onclick="loadImage()">Load Image</button>
+
+            <!-- button to clear canvas -->
+            <button onclick="clearCanvas()">Clear Canvas</button>
+        </div>
+    </div>
+
 		
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+	
 
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
 </footer>
+<!-- javascript function for the drawing, name, image, and clearing the canvas -->
+    <script>
+        // open the canvas and the drawing
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
 
+        // ability to draw the rectangle/function 
+        function drawRectangle() {// Fill with gradient
+ctx.fillStyle = grd;
+ctx.fillRect(50, 50, 200, 100)  // Draws a rectangle at position (50, 50) with width 200px and height 100px
+        }
+
+        // function to write the name on the canvas
+        function writeName() {
+            ctx.fillStyle = "black";        // setting the text color to black
+            ctx.font = "30px Arial";        // setting the font size and style
+            ctx.fillText("Jana Shaikh", 100, 200); // puts the name "Jana Shaikh" at position (100, 200)
+        }
+
+        // Function to load and display an image on the canvas
+        function loadImage() {
+            const img = new Image();               // Create a new image element
+            img.src = "https://via.placeholder.com/150"; // Placeholder image URL (replace with your image URL)
+            img.onload = function() {              // Once the image is loaded, draw it on the canvas
+                ctx.drawImage(img, 50, 50);        // Draws the image at position (50, 50) on the canvas
+            };
+        }
+
+        // lastly, the function to clear the canvas
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // this clears the entire canvas
+        }
+    </script>
 </body>
 </html>
