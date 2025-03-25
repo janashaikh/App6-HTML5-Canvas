@@ -109,9 +109,9 @@ console.log("This file last modified " + docMod); // generates message in javaSc
         const ctx = canvas.getContext("2d");
 
         // ability to draw the rectangle/function 
-        function drawRectangle() {// Fill with gradient
-ctx.fillStyle = grd;
-ctx.fillRect(50, 50, 200, 100)  // Draws a rectangle at position (50, 50) with width 200px and height 100px
+        function drawRectangle() {
+ctx.fillStyle = blue; //changed color to blue to make it easier
+ctx.fillRect(50, 50, 200, 100)  // draws the rectangle at position (50, 50) with width 200px and height 100px
         }
 
         // function to write the name on the canvas
@@ -124,7 +124,7 @@ ctx.fillRect(50, 50, 200, 100)  // Draws a rectangle at position (50, 50) with w
         // Function to load and display an image on the canvas
         function loadImage() {
             const img = new Image();               // Create a new image element
-            img.src = "https://via.placeholder.com/150"; // Placeholder image URL (replace with your image URL)
+            img.src = 'https://media.istockphoto.com/id/1443562748/photo/cute-ginger-cat.jpg?s=612x612&w=0&k=20&c=vvM97wWz-hMj7DLzfpYRmY2VswTqcFEKkC437hxm3Cg='; // cat picture
             img.onload = function() {              // Once the image is loaded, draw it on the canvas
                 ctx.drawImage(img, 50, 50);        // Draws the image at position (50, 50) on the canvas
             };
